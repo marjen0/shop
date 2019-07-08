@@ -1,17 +1,24 @@
 const express = require('express');
-
 const app = express();
+const mongoose = require('mongoose');
+const morgan = require('morgan');
+const config = require('config');
 
-app.get('/api/customers', (req, res) => {
-  const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-  ];
+const indexRoutes = require('./routes/api/index');
+const usersRoutes = require('./routes/api/users');
 
-  res.json(customers);
-});
+mongoose.connect(config.get('dbConfig.URL'), {useNewUrlParser: true, useCreateIndex:true})
+.then(()=> console.log('MongoDB connected'))
+.catch(error => console.error('could no connect to mongoDB',error));
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(morgan('tiny'));
+
+app.use('/api', indexRoutes);
+app.use('/api/users', usersRoutes);
+
 
 const port = 5000;
-
-app.listen(port, () => `Server running on port ${port}`);
+const ip = process.env.IP;
+app.listen(port,ip, () => console.log(`Server running on port ${port}`));

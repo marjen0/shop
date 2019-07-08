@@ -1,0 +1,9 @@
+{   
+    "dbConfig": {
+        "URL": "mongodb+srv://marijus:M.j943413911000@shop-x5wvl.mongodb.net/test?retryWrites=true&w=majority"
+    },
+    "auth": {
+        "saltRounds": "10",
+        "jwtSecret": "marijusjenulisnodeexpressreactapp"
+    }
+}
