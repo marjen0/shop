@@ -3,6 +3,7 @@ const router = express.Router({mergeParams: true});
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
+const auth = require('../../middleware/auth');
 
 const User = require('../../models/user');
 
@@ -81,6 +82,16 @@ router.post('/login', (req,res) => {
                 return res.status(400).json({message: 'Įvestas neteisingas slaptažodis'});
             }
         });
+    });
+});
+
+router.get('/user', auth, (req,res) => {
+    User.findById(req.user.id, (err, user) => {
+        if (!err) {
+            return res.status(200).json({user:user});
+        } else {
+            return res.status(400).json({message: 'Nepavyko rasti vartotojo'})
+        }
     });
 });
 
