@@ -1,6 +1,10 @@
 import React from 'react';
 
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import Menu from '../../components/Menu/Menu';
+import Container from '../Container/Container';
+
 
 class Layout extends React.Component {
     render() {
@@ -9,9 +13,17 @@ class Layout extends React.Component {
                 <header>
                     <Header/>
                 </header>
-                <main>
-                    {this.props.children}
-                </main>       
+                <Container>
+                    <nav>
+                        <Menu/>
+                    </nav>
+                    <main>
+                        {this.props.children}
+                    </main>
+                </Container>
+                <footer>
+                    <Footer/>
+                </footer>      
             </React.Fragment>
         );
     }

@@ -1,6 +1,7 @@
 .Logo {
     display: flex;
-    background-color: rgb(230, 230, 255);
+    /* background-color: rgb(230, 230, 255); */
+    border: 1px solid #ccc;
     border-radius: 40px;
     padding: 10px 15px;
     align-items: center;
