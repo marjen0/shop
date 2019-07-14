@@ -2,7 +2,8 @@
     height: 100px;
     margin: auto;
     border-bottom: 1px solid #ccc;
-    padding: 0 20px
+    padding: 10px 20px;
+    display: flex;
 }
 .Logo {
     border-radius: 50%;

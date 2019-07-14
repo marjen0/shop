@@ -1,0 +1,9 @@
+.ServiceInfoItem {
+    list-style: none;
+    font-size: 0.8em;
+    margin-left: 30px;
+}
+.ServiceInfoItem a {
+    text-decoration: none;
+    
+}

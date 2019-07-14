@@ -1,3 +1,7 @@
 .ServiceInfoItems {
     display: flex;
+    margin-left: 30px;
+}
+.Number {
+    font-size: 0.8em;
 }
