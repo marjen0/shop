@@ -1,0 +1,16 @@
+.Logo {
+    display: flex;
+    justify-content:;
+    align-items: center;
+    height: 100%;
+}
+.Logo img {
+    border-radius: 50%;
+    height: 70%;
+}
+.LogoText {
+    margin-left: 7px;
+}
+.LogoText p:first-child {
+    font-size: 2rem;
+}

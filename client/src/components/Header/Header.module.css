@@ -1,0 +1,9 @@
+.Header {
+    height: 100px;
+    margin: auto;
+    border-bottom: 1px solid #ccc;
+    padding: 0 20px
+}
+.Logo {
+    border-radius: 50%;
+}
