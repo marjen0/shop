@@ -1,0 +1,6 @@
+.UserLinks {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    align-items: center;
+}

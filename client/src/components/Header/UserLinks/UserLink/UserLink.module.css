@@ -1,0 +1,11 @@
+.Icon {
+    height: 30px;
+    width: auto;
+    margin-right: 10px;
+}
+.Wrapper {
+    display: flex;
+}
+.Wrapper > p {
+    font-size: 14px;
+}

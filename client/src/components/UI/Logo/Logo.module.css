@@ -1,6 +1,8 @@
 .Logo {
     display: flex;
-    
+    background-color: rgb(230, 230, 255);
+    border-radius: 40px;
+    padding: 10px 15px;
     align-items: center;
     height: 100%;
 }

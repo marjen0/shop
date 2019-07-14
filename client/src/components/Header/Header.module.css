@@ -5,6 +5,13 @@
     padding: 10px 20px;
     display: flex;
 }
-.Logo {
-    border-radius: 50%;
+.FlexContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 30px;
+}
+.HorizontalFlex {
+    display: flex;
+    flex-direction: row;
 }
