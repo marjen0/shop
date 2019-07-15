@@ -1,5 +1,23 @@
 .SideMenu {
-    width: 250px;
-    height: 400px;
-    background-color: #eee;
+    width: 300px;
+}
+.Controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10px;
+    background-color: #999;
+    position: relative;
+}
+.Controls p {
+    text-transform: uppercase;
+    margin-left: 10px;
+    font-weight: 700;
+    color: #fefefe;
+}
+.Controls img {
+    height: 12px;
+    position: absolute;
+    right: 12px;
+    width: auto;
 }

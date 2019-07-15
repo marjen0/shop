@@ -1,5 +1,25 @@
 .TopMenu {
-    height: 50px;
     width: 100%;
     background-color: #eee;
+    padding: 7px;
+}
+.TopMenu ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+}
+ul li a{
+    color: #212121;
+    text-decoration: none;
+}
+ul li a:hover {
+    color: rgb(211, 0, 0);
+}
+.DiscountLink {
+    height: 30px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    
 }
