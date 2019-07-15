@@ -16,6 +16,10 @@ const userSchema = new Schema({
     registerDate: {
         type: Date,
         default: new Date(),
+    },
+    boughtItems: {
+        type: Schema.Types.ObjectId,
+        ref: 'Item'
     }
 });
 
