@@ -25,7 +25,7 @@ const itemSchema = new Schema({
     },
     leftCount: {
         type: Number,
-        default: initialCount
+        default: this.initialCount
     },
     category: {
         type: Schema.Types.ObjectId,

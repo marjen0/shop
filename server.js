@@ -6,6 +6,8 @@ const config = require('config');
 
 const indexRoutes = require('./routes/api/index');
 const usersRoutes = require('./routes/api/users');
+const itemsRoutes = require('./routes/api/items/items');
+const itemCategoriesRoutes = require('./routes/api/items/categories');
 
 mongoose.connect(config.get('dbConfig.URL'), {useNewUrlParser: true, useCreateIndex:true})
 .then(()=> console.log('MongoDB connected'))
@@ -17,6 +19,8 @@ app.use(morgan('tiny'));
 
 app.use('/api', indexRoutes);
 app.use('/api/users', usersRoutes);
+app.use('/api/items', itemsRoutes);
+app.use('/api/categories', itemCategoriesRoutes);
 
 
 const port = 5000;
