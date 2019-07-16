@@ -6,6 +6,7 @@ const config = require('config');
 
 const indexRoutes = require('./routes/api/index');
 const authRoutes = require('./routes/api/authentication');
+const userRoutes = require('./routes/api/users');
 const itemsRoutes = require('./routes/api/items/items');
 const itemCategoriesRoutes = require('./routes/api/items/categories');
 
@@ -19,6 +20,7 @@ app.use(morgan('tiny'));
 
 app.use('/api', indexRoutes);
 app.use('/api/items', itemsRoutes);
+app.use('/api/users', userRoutes);
 app.use('/api/categories', itemCategoriesRoutes);
 app.use('/api/authentication', authRoutes);
 
