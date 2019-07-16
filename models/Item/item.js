@@ -29,7 +29,8 @@ const itemSchema = new Schema({
     },
     category: {
         type: Schema.Types.ObjectId,
-        ref: 'ItemCategory' 
+        ref: 'ItemCategory',
+        required: [true, 'Pasirinkite kategoriją'] 
     }
 });
 

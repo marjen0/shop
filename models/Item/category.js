@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const categorySchema = new Schema({
     name: {
         type: String,
-        required: [true, 'Nurodykite kategorijos paadinimą']
+        required: [true, 'Nurodykite kategorijos pavadinimą']
     }
 });
 
 const ItemCategory = mongoose.model('ItemCategory', categorySchema);
 
-module.exports = ItemCategory
+module.exports = ItemCategory;

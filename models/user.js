@@ -17,10 +17,11 @@ const userSchema = new Schema({
         type: Date,
         default: new Date(),
     },
-    boughtItems: {
+    boughtItems: [{
         type: Schema.Types.ObjectId,
         ref: 'Item'
-    }
+    
+    }]
 });
 
 const User = mongoose.model('User', userSchema);

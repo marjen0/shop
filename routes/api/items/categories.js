@@ -24,11 +24,8 @@ router.post('/', async (req,res) => {
         });
     } catch(e) {
         console.error('categories at / post', e);
-        return res.status(400).json({message: "Įvyko klaida. Bandykite dar kartą"});
-    }
-    
-
-    
+        return res.status(400).json({message:e.errors.name.message});
+    }   
 });
 
 module.exports = router;

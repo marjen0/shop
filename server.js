@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const config = require('config');
 
 const indexRoutes = require('./routes/api/index');
-const usersRoutes = require('./routes/api/users');
+const authRoutes = require('./routes/api/authentication');
 const itemsRoutes = require('./routes/api/items/items');
 const itemCategoriesRoutes = require('./routes/api/items/categories');
 
@@ -18,9 +18,9 @@ app.use(express.urlencoded({extended:true}));
 app.use(morgan('tiny'));
 
 app.use('/api', indexRoutes);
-app.use('/api/users', usersRoutes);
 app.use('/api/items', itemsRoutes);
 app.use('/api/categories', itemCategoriesRoutes);
+app.use('/api/authentication', authRoutes);
 
 
 const port = 5000;
