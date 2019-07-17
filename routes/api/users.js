@@ -25,7 +25,7 @@ router.get('/:id', async (req,res)=> {
         return res.status(200).json({user: user});
     } catch (e) {
         console.error('at users/:id', e);
-        return res.status(500).json({error: 'Įvyko klaida. Bandykite dar kartą'})
+        return res.status(500).json({error: 'Įvyko klaida. Bandykite dar kartą'});
     }
 });
 router.put('/:id', async (req,res) => {
@@ -38,9 +38,9 @@ router.put('/:id', async (req,res) => {
         }
         const success = await bcrypt.compare(oldPassword, user.password);
         if (!success) {
-            return res.status(400).json({message: 'Įvestas neteisingas senas slaptažodis'})
+            return res.status(400).json({message: 'Įvestas neteisingas senas slaptažodis'});
         }
-        const saltRounds = parseInt(config.get('auth.saltRounds'))
+        const saltRounds = parseInt(config.get('auth.saltRounds'));
         const salt = await bcrypt.genSalt(saltRounds);
         const newHash = await bcrypt.hash(newPassword,salt);
         user.password = newHash;
@@ -48,7 +48,7 @@ router.put('/:id', async (req,res) => {
         return res.status(200).json({message: 'Slaptažodis sėkmingai pakeistas'});
     } catch (e) {
         console.error('at users/:id', e);
-        return res.status(500).json({error: 'Įvyko klaida.'})
+        return res.status(500).json({error: 'Įvyko klaida.'});
     }
 });
 

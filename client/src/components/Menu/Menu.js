@@ -6,7 +6,7 @@ import classes from './Menu.module.css';
 const menu = (props) => {
     return (
         <div className={classes.Menu} >
-            <SideMenu/>
+            <SideMenu categories={props.categories}/>
             <TopMenu/>
         </div>
     );

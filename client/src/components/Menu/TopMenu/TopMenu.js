@@ -8,7 +8,7 @@ const topMenu = (props) => {
             <ul>
                 <li>
                     <a href='/' className={classes.DiscountLink}>
-                        <img src={discountIcon}/>
+                        <img src={discountIcon} alt='discount icon'/>
                         Akcijos
                     </a>
                 </li>
