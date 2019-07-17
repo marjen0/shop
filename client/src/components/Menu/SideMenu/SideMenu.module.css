@@ -1,5 +1,9 @@
 .SideMenu {
     width: 300px;
+    position: relative;
+}
+.SideMenu:hover .SideLinks {
+    display: block;
 }
 .Controls {
     display: flex;
@@ -9,6 +13,7 @@
     background-color: #999;
     position: relative;
 }
+
 .Controls p {
     text-transform: uppercase;
     margin-left: 10px;
@@ -20,4 +25,10 @@
     position: absolute;
     right: 12px;
     width: auto;
+}
+.SideLinks {
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
 }

@@ -5,15 +5,16 @@
 }
 .TopMenu ul {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     justify-content: space-around;
     align-items: center;
 }
-ul li a{
+.TopMenu ul li a{
     color: #212121;
     text-decoration: none;
 }
-ul li a:hover {
+.TopMenu ul li a:hover {
     color: rgb(211, 0, 0);
 }
 .DiscountLink {

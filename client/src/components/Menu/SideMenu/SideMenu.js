@@ -5,15 +5,17 @@ import SideMenuLinks from './SideMenuLinks/SideMenuLinks';
 import classes from './SideMenu.module.css';
 
 const sideMenu = (props) => {
+    //const sideLinks = props.show? <SideMenuLinks categories={props.categories}/> : null
+    const sideLinks = <SideMenuLinks categories={props.categories}/>
     return (
         <div className={classes.SideMenu}>
-            <div className={classes.Controls}>
-                <SideMenuToggle/>
+            <div className={classes.Controls} onClick={props.toggleMenu}>
+                <SideMenuToggle />
                 <p>visos prekės</p>
                 <img src={arrowIcon} alt='arrow icon'/>
             </div>
-            <div>
-                <SideMenuLinks categories={props.categories}/>
+            <div className={classes.SideLinks}>
+                {sideLinks}
             </div>
             
         </div>

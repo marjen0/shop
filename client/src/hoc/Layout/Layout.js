@@ -10,8 +10,13 @@ class Layout extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            categories: []
+            categories: [],
+            showSideMenu:true
         }
+        this.toggleMenu = this.toggleMenu.bind(this);
+    }
+    toggleMenu() {
+        this.setState({showSideMenu:!this.state.showSideMenu})
     }
 
     componentDidMount() {
@@ -25,7 +30,6 @@ class Layout extends React.Component {
     }
     
     render() {
-        console.log(this.props)
         return (
             <React.Fragment>
                 <header>
@@ -33,7 +37,11 @@ class Layout extends React.Component {
                 </header>
                 <Container>
                     <nav>
-                        <Menu categories={this.state.categories}/>
+                        <Menu 
+                            categories={this.state.categories}
+                            toggleMenu={this.toggleMenu}
+                            show={this.state.showSideMenu}
+                        />
                     </nav>
                     <main>
                         {this.props.children}
