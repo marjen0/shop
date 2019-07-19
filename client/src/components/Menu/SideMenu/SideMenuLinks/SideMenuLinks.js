@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import classes from './SideMenuLinks.module.css';
 
 const sideMenuLinks = (props) => {
-
+    
     const links = props.categories.map(link => {
         const capitalized = link.name.charAt(0).toUpperCase()+link.name.slice(1);
         const splittedLinkName = capitalized.replace('-', ' ');

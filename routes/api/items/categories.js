@@ -12,9 +12,10 @@ router.get('/', async (req,res) => {
     }
 });
 router.post('/', async (req,res) => {
-    const { name } = req.body;
+    const { name, nameAPI } = req.body;
     const newCategory = new Category({
-        name: name
+        name: name,
+        nameAPI: nameAPI
     });
     try {
         const savedCategory = await newCategory.save({validateBeforeSave:true});

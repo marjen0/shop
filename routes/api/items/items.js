@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router({mergeParams:true});
 const Item = require('../../../models/Item/item');
+const Category = require('../../../models/Item/category');
 
 router.get('/', async (req,res) => {
     try {
@@ -34,15 +35,29 @@ router.post('/', async (req,res) => {
     }
     
 });
-router.get('/:id', async (req,res) => {
+router.get('/visos-prekes', async (req,res) => {
     try {
-        const item = await Item.findById(req.params.id);
-        return res.status(200).json({item: item}); 
+        const items = await Item.find();
+        if (!items) {
+            return res.status(404).json({message: 'Nerasta prekių'});
+        }
+        return res.status(200).json({items: items});
     } catch (e) {
-        console.error('item at get /:id', e);
-        return res.status(404).json({message: 'Prekė nerasta'});
+        console.error('at /visos-prekės',e);
+        return res.status(500).json({message: 'Įvyko klaida'});
     }
 });
+router.get('/:category', async (req,res) => {
+    try {
+        const category = await Category.find({nameAPI: req.params.category})
+        const items = await Item.find({category: category.id});
+        return res.status(200).json({items: items}); 
+    } catch (e) {
+        console.error('item at get /:id', e);
+        return res.status(404).json({message: 'Prekės nerastos'});
+    }
+});
+
 
 
 module.exports = router;

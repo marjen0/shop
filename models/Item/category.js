@@ -5,6 +5,10 @@ const categorySchema = new Schema({
     name: {
         type: String,
         required: [true, 'Nurodykite kategorijos pavadinimą']
+    },
+    nameAPI: {
+        type:String,
+        require: [true, 'Nurodykite kategorijos pavadinimą. Skirti "-", nenaudoti lietuviškų simbolių']
     }
 });
 
