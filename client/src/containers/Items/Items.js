@@ -1,6 +1,11 @@
 import React from 'react';
 import * as actions from '../../redux/actions/index';
 import { connect } from 'react-redux';
+import Item from '../../components/Item/Item';
+import Category from '../../components/UI/Category/Category';
+import Spinner from '../../components/UI/Spinner/Spinner';
+import classes from './Items.module.css';
+
 
 class Items extends React.Component {
     replaceLetter = (word) => {
@@ -26,23 +31,29 @@ class Items extends React.Component {
     render() {
         const category = this.props.match.params.category;
         const displayCategory = category.charAt(0).toUpperCase()+category.slice(1).replace('-', ' ');
+
+        let items = this.props.isLoading
+            ? <Spinner/>
+            : this.props.items.map(item => (
+                <Item key={item._id} item={item}/>
+            ))
+        
         return(
             <React.Fragment>
-                <h1>
+                <Category>
                     {displayCategory}
-                </h1>
-                <ul>
-                    {this.props.items.map(item => (
-                        <li key={item._id}>{item.title}</li>
-                    ))}
-                </ul>
+                </Category>
+                <div className={classes.Wrapper}>
+                    {items}
+                </div>
             </React.Fragment>
         );
     }
 }
 const mapStateToProps = state => {
     return {
-        items: state.items.items
+        items: state.items.items,
+        isLoading: state.items.isLoading
     }
 }
 const mapDispatchToProps = dispatch => {

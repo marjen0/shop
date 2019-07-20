@@ -22,7 +22,6 @@ export const fetchItems = (category) => (dispatch) => {
     dispatch(fetchItemsStart())
     axios.get('/api/items/'+category)
     .then(res => {
-        console.log(res.data);
         dispatch(fetchItemsSuccess(res.data.items));
     })
     .catch(err => {

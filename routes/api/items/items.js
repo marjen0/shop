@@ -35,28 +35,29 @@ router.post('/', async (req,res) => {
     }
     
 });
-router.get('/visos-prekes', async (req,res) => {
-    try {
-        const items = await Item.find();
-        if (!items) {
-            return res.status(404).json({message: 'Nerasta prekių'});
-        }
-        return res.status(200).json({items: items});
-    } catch (e) {
-        console.error('at /visos-prekės',e);
-        return res.status(500).json({message: 'Įvyko klaida'});
-    }
-});
 router.get('/:category', async (req,res) => {
     try {
-        const category = await Category.find({nameAPI: req.params.category})
-        const items = await Item.find({category: category.id});
+        if (req.params.category === "visos-prekes") {
+           const allItems = await getAllItems();
+           return res.status(200).json({items:allItems});
+        }
+        const category = await Category.find({nameAPI: req.params.category}).select('id');
+        const items = await Item.find({category: category});
         return res.status(200).json({items: items}); 
     } catch (e) {
         console.error('item at get /:id', e);
-        return res.status(404).json({message: 'Prekės nerastos'});
+        return res.status(500).json({message: 'Klida'});
     }
 });
+
+async function getAllItems()  {
+    try {
+        const items = await Item.find();
+        return items;
+    } catch (e) {
+        console.error('at /visos-prekės',e);
+    }
+}
 
 
 

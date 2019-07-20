@@ -9,7 +9,7 @@ class App extends Component {
     return (
         <Layout>
           <Switch>
-            <Route path='/:category' component={Items}/>
+            <Route path='/:category' render={(props) => (<Items key={props.match.params.category} {...props}/>)}/>
             <Route path='/' exact component={Home}/>
           </Switch>
         </Layout>

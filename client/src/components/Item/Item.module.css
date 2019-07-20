@@ -1,0 +1,65 @@
+.Item {
+    border: 1px dolid #ccc;
+    border-radius: 3px;
+    box-shadow: -1px 1px 3px #ccc;
+    padding: 20px;
+}
+.Item:hover {
+    transform: scale(1.1);
+    border-bottom: 10px solid orange;
+}
+.Item p {
+    margin-top: 10px;
+}
+.Item p:first-of-type {
+    margin-bottom: 10px;
+}
+.Item img {
+    max-height: 150px;
+    width: auto;
+    
+}
+.Price::before {
+    display: block;
+    content: " ";
+    width: 100%;
+    border-top: 1px solid red;
+    margin-bottom: 10px;
+}
+.AddToCart {
+    display: block;
+    margin: 0 auto;
+    padding: 8px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    font-weight: bold;
+}
+.AddToCart:hover {
+    background-color: rgb(0, 158, 0);
+}
+.Price {
+    color: rgb(228, 0, 0);
+    font-weight: bold;
+}
+.InWarehouse {
+    color: green;
+    font-size: 0.8em;
+}
+.AddToWishlist {
+    display: block;
+    margin: 0 auto;
+    padding: 8px;
+    background-color: rgb(20, 75, 255);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    font-weight: bold;
+    margin-top: 8px;
+}
+.AddToWishlist:hover {
+    background-color: rgb(0, 45, 194);
+}

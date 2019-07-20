@@ -6,6 +6,7 @@ import Menu from '../../components/Menu/Menu';
 import Container from '../Container/Container';
 
 
+
 class Layout extends React.Component {
     constructor(props){
         super(props);
