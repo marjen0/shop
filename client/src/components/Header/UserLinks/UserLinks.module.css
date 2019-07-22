@@ -4,3 +4,39 @@
     margin-left: 20px;
     align-items: center;
 }
+.Auth {
+    position: absolute;
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+}
+.Auth p {
+    font-size: 0.9em;
+    margin: 10px;
+}
+.UserLinks:hover .Auth {
+    display: block;
+}
+.Auth hr {
+    margin: 20px 0;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+
+}
+
+.Auth button {
+    text-align: center;
+    background-color: green;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 100%;
+    color: #fff !important;
+    border:none;
+}
+.Auth button:hover {
+    background-color: rgb(0, 194, 0);
+}

@@ -12,14 +12,10 @@ class Layout extends React.Component {
         super(props);
         this.state = {
             categories: [],
-            showSideMenu:true
+            showModal: false
         }
-        this.toggleMenu = this.toggleMenu.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
     }
-    toggleMenu() {
-        this.setState({showSideMenu:!this.state.showSideMenu})
-    }
-
     componentDidMount() {
         axios.get('/api/categories')
         .then(res => {
@@ -29,12 +25,20 @@ class Layout extends React.Component {
         })
         .catch(err => {console.log(err)});
     }
+    toggleModal() {
+        this.setState((prevState) => {
+            return {showModal: !prevState.showModal}
+        });
+    }
     
     render() {
         return (
             <React.Fragment>
                 <header>
-                    <Header/>
+                    <Header 
+                        showModal={this.state.showModal}
+                        toggleModal={this.toggleModal}
+                    />
                 </header>
                 <Container>
                     <nav>
