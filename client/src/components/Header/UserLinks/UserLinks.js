@@ -12,10 +12,10 @@ const userLinks = (props) => {
                 Prisijungti Registruotis
                 <div className={classes.Auth}>
                     <p>Sveiki atvykę į Brangu.lt</p>
-                    <button onClick={props.toggleModal}>Prisijungti</button>
+                    <UserLink to='/prisijungti'>Prisijungti</UserLink>
                     <hr/>
                     <p>Neturite paskyros? </p>
-                    <button onClick={props.toggleModal}>Registruotis</button>
+                    <UserLink to='/registracija'>Registruotis</UserLink>
                     <p>Registruotiems vartotojams grįžta 0,5% pirkinių vertės</p>
                 </div>
             </UserLink>

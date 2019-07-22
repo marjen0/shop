@@ -27,7 +27,7 @@
 
 }
 
-.Auth button {
+.Auth a {
     text-align: center;
     background-color: green;
     padding: 10px;
@@ -37,6 +37,6 @@
     color: #fff !important;
     border:none;
 }
-.Auth button:hover {
+.Auth a:hover {
     background-color: rgb(0, 194, 0);
 }

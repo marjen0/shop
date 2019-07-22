@@ -12,9 +12,9 @@ class Layout extends React.Component {
         super(props);
         this.state = {
             categories: [],
-            showModal: false
+            showModalLogin: false,
+            showModalRegister: false
         }
-        this.toggleModal = this.toggleModal.bind(this);
     }
     componentDidMount() {
         axios.get('/api/categories')
@@ -25,20 +25,12 @@ class Layout extends React.Component {
         })
         .catch(err => {console.log(err)});
     }
-    toggleModal() {
-        this.setState((prevState) => {
-            return {showModal: !prevState.showModal}
-        });
-    }
     
     render() {
         return (
             <React.Fragment>
                 <header>
-                    <Header 
-                        showModal={this.state.showModal}
-                        toggleModal={this.toggleModal}
-                    />
+                    <Header/>
                 </header>
                 <Container>
                     <nav>

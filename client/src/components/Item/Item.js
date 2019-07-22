@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './Item.module.css';
 import itemImage from '../../assets/images/item.png';
-import truckIcon from '../../assets/icons/truck.svg';
 
 const item = (props) => {
     return(

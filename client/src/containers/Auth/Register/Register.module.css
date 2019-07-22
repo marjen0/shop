@@ -1,0 +1,17 @@
+.Register {
+    width: 600px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    box-shadow: -1px 1px 5px #eee;
+    padding: 15px;
+}
+.Register form button {
+    margin-top: 10px;
+    width: 100%;
+    background-color: rgb(206, 0, 0);
+    outline: none;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
