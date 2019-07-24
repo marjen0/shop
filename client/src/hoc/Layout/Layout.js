@@ -12,25 +12,30 @@ class Layout extends React.Component {
         super(props);
         this.state = {
             categories: [],
-            showModalLogin: false,
-            showModalRegister: false
+            itemsCount: null
         }
     }
-    componentDidMount() {
-        axios.get('/api/categories')
-        .then(res => {
+    getCategories = () => {
+        return axios.get('/api/categories');
+    }
+    getItems = () => {
+        return axios.get('/api/items');
+    }
+    componentWillMount() {
+        axios.all([this.getCategories(),this.getItems()])
+        .then(axios.spread((categories,items) => {``
             this.setState({
-                categories: res.data.categories
+                categories: categories.data.categories,
+                itemsCount: items.data.items.length
             });
-        })
-        .catch(err => {console.log(err)});
+        }));
     }
     
     render() {
         return (
             <React.Fragment>
                 <header>
-                    <Header/>
+                    <Header itemsCount={this.state.itemsCount}/>
                 </header>
                 <Container>
                     <nav>

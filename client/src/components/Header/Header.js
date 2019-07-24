@@ -17,7 +17,7 @@ const header = (props) => {
             <div className={classes.FlexContainer}>
                 <ServiceInfoItems/>
                 <div className={classes.HorizontalFlex}>
-                    <SearchBar productCount={5645}/>
+                    <SearchBar itemsCount={props.itemsCount}/>
                     <UserLinks/>
                     
                 </div>        
