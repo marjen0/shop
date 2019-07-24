@@ -1,8 +1,12 @@
 import React from 'react';
 import classes from './Login.module.css';
 import Input from '../../../components/UI/Input/Input';
+import {connect} from 'react-redux';
+import { login } from '../../../redux/actions/auth'
+import { clearErrors } from '../../../redux/actions/error';
+import { Redirect } from 'react-router-dom';
 
-class Register extends React.Component {
+class Login extends React.Component {
     state = {
         controls: {
             email: {
@@ -23,9 +27,21 @@ class Register extends React.Component {
                 value: '',
                 label: 'Slaptažodis'
             }
+        },
+        error: null
+    }
+    componentDidUpdate(prevProps){
+        const error = this.props.error;
+        if (error !== prevProps.error) {
+            if (error.id === 'LOGIN_FAIL') {
+                this.setState({message: error.message.message})
+            } else {
+                this.setState({message:null})
+            }
         }
     }
     inputChangeHandler = (event, controlName) => {
+        this.props.clearErrors();
         const updatedControls = {
             ...this.state.controls,
             [controlName]: {
@@ -38,7 +54,11 @@ class Register extends React.Component {
     submitHandler = (event) => {
         event.preventDefault();
         const { email, password } = this.state.controls;
-        
+        const user = {
+            email: email.value,
+            password: password.value
+        }
+        this.props.login(user);
     }
     render(){
         const formElementsArray = [];
@@ -58,17 +78,25 @@ class Register extends React.Component {
                 changed={(event) => this.inputChangeHandler(event,formElement.id)}
             />
         ));
+        let error = this.state.message? <p>{this.state.message}</p>: null
+
+        let authRedirect = this.props.isAuthenticated? <Redirect to='/'/> : null;
         return (
-            
             <div className={classes.Login}>
-                {console.log(formElementsArray)}
+                {authRedirect}
+                {error}
                 <form onSubmit={this.submitHandler}>
                     {form}
-                    <button>Registruotis</button>
+                    <button>Prisijungti</button>
                 </form>
             </div>
         );
     }
 }
-
-export default Register;
+const mapStateToProps = state => {
+    return {
+        error: state.error,
+        isAuthenticated: state.auth.isAuthenticated
+    }
+}
+export default connect(mapStateToProps,{login,clearErrors})(Login);

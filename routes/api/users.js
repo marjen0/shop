@@ -3,6 +3,7 @@ const router = express.Router({mergeParams:true});
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const User = require('../../models/user');
+const authenticate = require('../../middleware/auth');
 
 router.get('/', async (req,res) => {
     try {
@@ -15,6 +16,9 @@ router.get('/', async (req,res) => {
         console.error('at /users get' , e);
         res.status(500).json({message: 'Įvyko klaida. Bandykite dar kartą'});
     }
+});
+router.get('/user',authenticate,(req,res) => {
+    User.findById(req.user.id).select('-password').then(user => res.json({user:user}))
 });
 router.get('/:id', async (req,res)=> {
     try {

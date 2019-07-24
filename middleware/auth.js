@@ -6,7 +6,7 @@ const authenticate = (req,res,next) => {
 
     //check for token
     if (!token) {
-        res.status(401).json({message: "Turite prisijungti"});
+        return res.status(401).json({message: "Turite prisijungti"});
     }
     try {
         const decoded = jwt.verify(token, config.get('auth.jwtSecret'));

@@ -25,8 +25,12 @@ class Items extends React.Component {
         return newWord;
     }
     componentDidMount() {
-        const category = this.replaceLetter(this.props.match.params.category);
-        this.props.fetchItems(category);
+        const paramsCategory = this.props.match.params.category
+        if (paramsCategory) {
+            const category = this.replaceLetter(paramsCategory);
+            this.props.fetchItems(category);
+        }
+        
     }
     render() {
         const category = this.props.match.params.category;

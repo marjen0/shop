@@ -8,22 +8,26 @@ const auth = require('../../middleware/auth');
 const User = require('../../models/user');
 
 router.post('/register', (req,res) => {
-    const { email, password } = req.body;
-    if (!email || !password) {
+    
+    const { email, password1,password2 } = req.body
+    if (!email || !password1 || !password2) {
         return res.status(400).json({message: 'Užpildykite visus laukelius.'})
+    }
+    if (password1 !== password2) {
+        return res.status(400).json({message: 'Nesutampa slaptažodžiai'});
     }
     User.findOne({email: email})
     .then(user => {
         if (user) {
             return res.status(400).json({message: "Toks vartotojas jau egzistuoja"})
         } else {
-            const newUser = new User({email,password})
+            const newUser = new User({email,password1});
             //create salt and hash
             const saltRounds = parseInt(config.get('auth.saltRounds'))
             bcrypt.genSalt(saltRounds, (err,salt) => {
-                bcrypt.hash(newUser.password, salt, (err,hash) => {
+                bcrypt.hash(newUser.password1, salt, (err,hash) => {
                     if (err) throw err;
-                    newUser.password = hash;
+                    newUser.password1 = hash;
                     newUser.save().then(user => {
                         jwt.sign({
                             id: user.id,

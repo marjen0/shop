@@ -5,8 +5,15 @@ import Home from './containers/Home/Home';
 import Items from './containers/Items/Items';
 import Register from './containers/Auth/Register/Register';
 import Login from './containers/Auth/Login/Login';
+import store from './redux/store';
+import { loadUser } from './redux/actions/auth';
 
 class App extends Component {
+
+  componentDidMount(){
+    store.dispatch(loadUser());
+  }
+
   render() {
     return (
         <Layout>
