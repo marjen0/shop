@@ -9,6 +9,7 @@
 }
 .Wrapper > a {
     font-size: 14px;
+    margin: auto 0;
     text-decoration: none;
     color: #484848;
 }
