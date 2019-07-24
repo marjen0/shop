@@ -28,3 +28,15 @@ export const fetchItems = (category) => (dispatch) => {
         dispatch(fetchItemsFail('Nepavyko rasti prekių'));
     });
 }
+export const addToWishlist = (item) => {
+    return {
+        type: actionTypes.ADD_TO_WISHLIST,
+        item: item
+    }
+}
+export const removeFromWishlist = (id) => {
+    return {
+        type: actionTypes.REMOVE_FROM_WISHLIST,
+        id:id
+    }
+}

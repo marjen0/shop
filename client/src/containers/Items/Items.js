@@ -30,7 +30,6 @@ class Items extends React.Component {
             const category = this.replaceLetter(paramsCategory);
             this.props.fetchItems(category);
         }
-        
     }
     render() {
         const category = this.props.match.params.category;

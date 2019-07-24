@@ -1,7 +1,9 @@
 import * as actionTypes from '../actions/actionTypes';
+import { stat } from 'fs';
 
 const initialState = {
     items: [],
+    wishlist: [...JSON.parse(localStorage.getItem('wishlist'))],
     isLoading:false,
     error: null
 }
@@ -24,6 +26,22 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 isLoading: false,
                 error: action.message
+            }
+        case actionTypes.ADD_TO_WISHLIST:
+            const newWishlist = [...state.wishlist];
+            newWishlist.push(action.item);
+            localStorage.setItem('wishlist', JSON.stringify(newWishlist));
+            
+            return {
+                ...state,
+                wishlist: newWishlist
+            }
+        case actionTypes.REMOVE_FROM_WISHLIST:
+            const updatedWishlist = [...state.wishlist].filter(item => item._id !== action.id);
+            localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+            return {
+                ...state,
+                wishlist: updatedWishlist
             }
         default:
             return state;

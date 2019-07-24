@@ -1,1 +1,1 @@
-export { fetchItems } from './items';
+export { fetchItems,addToWishlist,removeFromWishlist } from './items';

@@ -1,18 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../redux/actions/index';
 import classes from './Item.module.css';
 import itemImage from '../../assets/images/item.png';
 
-const item = (props) => {
-    return(
-        <div className={classes.Item}>
-            <img src={itemImage} alt='item'/>
-            <p className={classes.Price}><span>&euro;</span> {props.item.price}</p>
-            <button className={classes.AddToCart}>Į krepšelį</button>
-            <button className={classes.AddToWishlist}>Įtraukti į norų sąrašą</button>
-            <p className={classes.InWarehouse}>PREKĖ SANDĖLYJE</p>
-            <p>{props.item.title}</p>
-        </div>
-    );
+class Item extends React.Component {
+    addToWishlistHandle = (e,item) => {
+        e.preventDefault();
+        this.props.addToWishlist(item);
+    }
+    render() {
+        const {item} = this.props;
+        return(
+            <div className={classes.Item}>
+                <img src={itemImage} alt='item'/>
+                <p className={classes.Price}><span>&euro;</span> {item.price}</p>
+                <button className={classes.AddToCart}>Į krepšelį</button>
+                <button onClick={(e) => this.addToWishlistHandle(e,item)} className={classes.AddToWishlist}>Įtraukti į norų sąrašą</button>
+                <p className={classes.InWarehouse}>PREKĖ SANDĖLYJE</p>
+                <p>{item.title}</p>
+            </div>
+        );
+    }
 }
-
-export default item
+const mapDispatchToProps = dispatch => {
+    return {
+        addToWishlist: (item) => dispatch(actions.addToWishlist(item))
+    }
+}
+export default connect(null,mapDispatchToProps)(Item);

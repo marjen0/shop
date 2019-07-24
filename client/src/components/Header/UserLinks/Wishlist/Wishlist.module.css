@@ -1,0 +1,35 @@
+.Item {
+    display: flex;
+    padding: 10px;
+    height: 100px;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.219);;
+    justify-content: space-between;
+}
+.Item img {
+    height: 100%;
+    width: auto;
+}
+.Properties {
+    display: flex;
+    flex-direction: column;
+}
+.Properties p {
+    margin: 5px;
+}
+.Buttons {
+    display: flex;
+    flex-direction: column;
+    right: 0;
+}
+.Buttons button {
+    padding: 7px;
+    border: none;
+    background-color: transparent;
+    color: blue;
+}
+.SeeAll {
+    background-color: #eee;
+    padding: 10px;
+    text-align: center;
+    color: blue;
+}
