@@ -3,7 +3,7 @@ import { stat } from 'fs';
 
 const initialState = {
     items: [],
-    wishlist: [...JSON.parse(localStorage.getItem('wishlist'))],
+    wishlist: localStorage.getItem('wishlist')? [...JSON.parse(localStorage.getItem('wishlist'))] : [],
     isLoading:false,
     error: null
 }
