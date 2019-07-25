@@ -23,7 +23,7 @@ class Layout extends React.Component {
     }
     componentWillMount() {
         axios.all([this.getCategories(),this.getItems()])
-        .then(axios.spread((categories,items) => {``
+        .then(axios.spread((categories,items) => {
             this.setState({
                 categories: categories.data.categories,
                 itemsCount: items.data.items.length

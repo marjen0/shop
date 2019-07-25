@@ -16,6 +16,7 @@
     font-size: 0.9em;
     margin: 10px;
 }
+
 .UserLinks:hover .Auth {
     display: block;
 }

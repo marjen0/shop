@@ -16,7 +16,7 @@
 .Wrapper > a:hover {
     color: rgb(70, 70, 255);
 }
-.Wrapper > p {
+.Wrapper > div {
     font-size: 14px;
     text-decoration: none;
     color: #484848;
