@@ -18,6 +18,10 @@ const fetchItemsFail = (message) => {
         message: message
     }
 }
+/**
+ * @desc fetches items of specified category
+ * @param {category of fetched items} category 
+ */
 export const fetchItems = (category) => (dispatch) => {
     dispatch(fetchItemsStart())
     axios.get('/api/items/'+category)
@@ -28,15 +32,43 @@ export const fetchItems = (category) => (dispatch) => {
         dispatch(fetchItemsFail('Nepavyko rasti prekių'));
     });
 }
+/**
+ * 
+ * @param {item to add to wishlist (localstorage and redux state)} item 
+ */
 export const addToWishlist = (item) => {
     return {
         type: actionTypes.ADD_TO_WISHLIST,
         item: item
     }
 }
+/**
+ * 
+ * @param {id of item to be removed} id 
+ */
 export const removeFromWishlist = (id) => {
     return {
         type: actionTypes.REMOVE_FROM_WISHLIST,
+        id:id
+    }
+}
+/**
+ * 
+ * @param {item to add to cart (localstorage and redux state)} item 
+ */
+export const addToCart = (item) => {
+    return {
+        type: actionTypes.ADD_TO_CART,
+        item: item
+    }
+}
+/**
+ * 
+ * @param {id of item to be removed} id 
+ */
+export const removeFromCart = (id) => {
+    return {
+        type: actionTypes.REMOVE_FROM_CART,
         id:id
     }
 }

@@ -4,6 +4,7 @@ import { stat } from 'fs';
 const initialState = {
     items: [],
     wishlist: localStorage.getItem('wishlist')? [...JSON.parse(localStorage.getItem('wishlist'))] : [],
+    cart: localStorage.getItem('cart')? [...JSON.parse(localStorage.getItem('cart'))] : [],
     isLoading:false,
     error: null
 }
@@ -42,6 +43,21 @@ const reducer = (state=initialState, action) => {
             return {
                 ...state,
                 wishlist: updatedWishlist
+            }
+        case actionTypes.ADD_TO_CART:
+            const newCart = [...state.cart];
+            newCart.push(action.item);
+            localStorage.setItem('cart', JSON.stringify(newCart));
+            return {
+                ...state,
+                cart: newCart
+            }
+        case actionTypes.REMOVE_FROM_CART:
+            const updatedcart = [...state.cart].filter(item => item._id !== action.id);
+            localStorage.setItem('cart', JSON.stringify(updatedcart));
+            return {
+                ...state,
+                cart: updatedcart
             }
         default:
             return state;

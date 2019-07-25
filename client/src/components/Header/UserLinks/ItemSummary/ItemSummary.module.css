@@ -3,7 +3,7 @@
     padding: 10px;
     height: 100px;
     border-bottom: 1px solid rgba(204, 204, 204, 0.219);;
-    justify-content: space-between;
+    justify-content: start;
 }
 .Item img {
     height: 100%;
@@ -11,6 +11,7 @@
 }
 .Properties {
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
 }
 .Properties p {
@@ -19,7 +20,7 @@
 .Buttons {
     display: flex;
     flex-direction: column;
-    right: 0;
+    flex-wrap: wrap;
 }
 .Buttons button {
     padding: 7px;
