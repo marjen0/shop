@@ -14,7 +14,7 @@ class ItemSummary extends React.Component {
         let link = null;
         if (this.props.items.length !== 0) {
             link = (<div className={classes.SeeAll}>
-                        <Link to='/patikusios-prekes'>Peržiūrėti visas prekes</Link>
+                        <Link to={this.props.link}>Peržiūrėti visas prekes</Link>
                     </div>)
         }
         let items = this.props.items.map((item, index) =>      

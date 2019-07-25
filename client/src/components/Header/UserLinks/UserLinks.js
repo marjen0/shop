@@ -57,6 +57,7 @@ class UserLinks extends React.Component {
                         <div className={classes.Wishlist}>
                             <EmptyList wishlist={this.props.wishlist}/>
                             <ItemSummary
+                                link={'/patikusios-prekes'}
                                 items={this.props.wishlist}
                                 remove={this.remove}
                                 wishlist={true}
@@ -70,6 +71,7 @@ class UserLinks extends React.Component {
                         <div className={classes.Wishlist}>
                             <EmptyList cart={this.props.cart}/>
                             <ItemSummary
+                                link='/prekiu-krepselis'
                                 items={this.props.cart}
                                 remove={this.removeFromCart}
                                 wishlist={false}
