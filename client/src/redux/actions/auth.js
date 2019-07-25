@@ -10,7 +10,10 @@ import {
 } from './actionTypes';
 import axios from 'axios';
 import { returnErros } from './error'
-
+ 
+/**
+ * @desc loads logged in user from backend
+ */
 export const loadUser = () => (dispatch,getState) => {
     dispatch({type: USER_LOADING});
     axios.get('/api/users/user',tokenConfig(getState))
@@ -25,11 +28,18 @@ export const loadUser = () => (dispatch,getState) => {
         });
     });
 }
+/**
+ * @desc logs out user. Removes jwt token
+ */
 export const logout = () => {
     return {
         type: LOGOUT_SUCCESS
     }
 }
+/**
+ * 
+ * @desc log in user
+ */
 export const login = ({email,password}) => dispatch => {
     const body = {email,password};
     axios.post('/api/authentication/login',body)
@@ -46,6 +56,10 @@ export const login = ({email,password}) => dispatch => {
         })
     })
 }
+/**
+ * 
+ * @desc creates new user 
+ */
 export const register = ({email,password1,password2}) => dispatch => {
     const body = {email,password1,password2};
     axios.post('/api/authentication/register',body)
@@ -63,6 +77,10 @@ export const register = ({email,password1,password2}) => dispatch => {
     })
 }
 //setup config/headers ant token
+/**
+ * 
+ * @desc adds token in headers 
+ */
 const tokenConfig = (getState) => {
      //get token from local storage
     const token = getState().auth.token;
