@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Item from '../../components/Item/Item';
 import Category from '../../components/UI/Category/Category';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import PropTypes from 'prop-types';
 import classes from './Items.module.css';
 
 
@@ -52,6 +53,9 @@ class Items extends React.Component {
             </React.Fragment>
         );
     }
+}
+Item.propTypes = {
+    items: PropTypes.array.isRequired,
 }
 const mapStateToProps = state => {
     return {

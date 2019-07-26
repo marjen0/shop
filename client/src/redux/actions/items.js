@@ -32,6 +32,16 @@ export const fetchItems = (category) => (dispatch) => {
         dispatch(fetchItemsFail('Nepavyko rasti prekių'));
     });
 }
+export const fetchAllItems = querystring => dispatch => {
+    dispatch(fetchItemsStart());
+    axios.get('/api/items'+querystring)
+    .then(res => {
+        dispatch(fetchItemsSuccess(res.data.items));
+    })
+    .catch(err => {
+        dispatch(fetchItemsFail('Nepavyko rasti prekių'));
+    })
+}
 /**
  * 
  * @param {item to add to wishlist (localstorage and redux state)} item 
