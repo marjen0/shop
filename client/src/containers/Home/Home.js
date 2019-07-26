@@ -5,6 +5,7 @@ import Item from '../../components/Item/Item';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import { connect } from 'react-redux';
 import * as actions from '../../redux/actions';
+import classes from './Home.module.css';
 
 class Home extends React.Component {
     componentDidMount(){
@@ -23,7 +24,9 @@ class Home extends React.Component {
                 <Category>
                     populiariausios prekės
                 </Category>
-                {items}
+                <div className={classes.ItemsWrapper}>
+                    {items}
+                </div>
             </React.Fragment>
             
         );
