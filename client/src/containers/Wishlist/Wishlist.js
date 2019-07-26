@@ -7,7 +7,7 @@ import classes from './Wishlist.module.css';
 class Wishlist extends React.Component {
     render() {
         const items = this.props.wishlist.map(item => (
-            <Item key={item._id} item={item}/>
+            <Item wishlist={true} key={item._id} item={item}/>
         ));
         return(
             <div className={classes.Wrapper}>

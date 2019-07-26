@@ -7,7 +7,7 @@ import classes from './Cart.module.css';
 class Cart extends React.Component {
     render() {
         const items = this.props.cart.map(item => (
-            <Item key={item._id} item={item}/>
+            <Item cart={true} key={item._id} item={item}/>
         ));
         return(
             <div className={classes.Wrapper}>
