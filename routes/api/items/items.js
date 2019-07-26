@@ -5,11 +5,18 @@ const Category = require('../../../models/Item/category');
 
 router.get('/', async (req,res) => {
     try {
-        const items = await Item.find();
+        let items = null;
+        const limit = req.query.limit;
+        if (limit) {
+            items = await getLimitedItems(limit);
+            return res.status(200).json({items:items});
+        }
+
+        items = await getAllItems();
         return res.status(200).json({items: items})
     } catch(e) {
         console.error('items at /', e);
-        return res.status(404).json({errors: 'Nerasta prekių'});
+        return res.status(500).json({errors: 'Įvyko klaida'});
     }
 });
 router.post('/', async (req,res) => {
@@ -21,7 +28,6 @@ router.post('/', async (req,res) => {
         initialCount: initialCount,
         category:category
     });
-    console.log(item)
     try {
         const savedItem = await item.save({validateBeforeSave:true});
         return res.status(201).json({message: 'Prekė sėkmingai pridėta'});
@@ -49,10 +55,17 @@ router.get('/:category', async (req,res) => {
         return res.status(500).json({message: 'Klida'});
     }
 });
-
-async function getAllItems()  {
+getLimitedItems = async (limit) =>{
     try {
-        const items = await Item.find();
+        const items = Item.find().limit(parseInt(limit)).sort('-purchasedCount');
+        return items;
+    } catch (error) {
+        console.error('at getlimiteditems',error);
+    }
+}
+getAllItems = async () => {
+    try {
+        const items = await Item.find().sort('purchasedCount');
         return items;
     } catch (e) {
         console.error('at /visos-prekės',e);
