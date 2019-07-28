@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const config = require('config');
+const path = require('path');
 
 const indexRoutes = require('./routes/api/index');
 const userRoutes = require('./routes/api/users');
@@ -26,7 +27,15 @@ app.use('/api/purchases', purchaseRoutes);
 app.use('/api/authentication', authRoutes);
 app.use('/api/categories', itemCategoriesRoutes);
 
+// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+    // set sttaic folder
+    app.use(express.static('client/build'));
+    app.get('*', (req,res) => {
+        res.sendFile(path.resolve(__dirname,'client','build', 'index.html'))
+    })
+}
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 const ip = process.env.IP;
 app.listen(port,ip, () => console.log(`Server running on port ${port}`));
