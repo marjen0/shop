@@ -82,3 +82,13 @@ export const removeFromCart = (id) => {
         id:id
     }
 }
+export const itemAmountHandle = (id, value) => {
+    return {
+        type: actionTypes.CHANGE_ITEM_AMOUNT,
+        payload: {
+            id:id,
+            value:value
+        }
+    }
+}
+

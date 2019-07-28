@@ -1,17 +1,16 @@
 import React from 'react';
 import Item from '../../components/Item/Item';
 import { connect } from 'react-redux';
+import CartItems from '../../components/CartItems/CartItems';
 
 import classes from './Cart.module.css';
 
 class Cart extends React.Component {
     render() {
-        const items = this.props.cart.map(item => (
-            <Item cart={true} key={item._id} item={item}/>
-        ));
         return(
-            <div className={classes.Wrapper}>
-                {items}
+            <div className={classes.Cart}>
+               <CartItems items={this.props.cart}/>
+               <button>Pirkti</button>
             </div>
         );
     }

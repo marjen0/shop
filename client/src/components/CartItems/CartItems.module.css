@@ -1,0 +1,13 @@
+.Table {
+    border-collapse: collapse;
+    margin: 2rem 0;
+    width: 100%;
+    text-align: left;
+}
+.Table tr,th {
+    padding: 15px;
+    background-color: #f8f8f8;  
+}
+.Table tr {
+    border: 1px solid #efefef;
+}

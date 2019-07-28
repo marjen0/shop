@@ -45,6 +45,8 @@ const reducer = (state=initialState, action) => {
             }
         case actionTypes.ADD_TO_CART:
             const newCart = [...state.cart];
+            action.item.amount = 1;
+            action.item.totalPrice=action.item.amount*action.item.price;
             newCart.push(action.item);
             localStorage.setItem('cart', JSON.stringify(newCart));
             return {
@@ -57,6 +59,12 @@ const reducer = (state=initialState, action) => {
             return {
                 ...state,
                 cart: updatedcart
+            }
+        case actionTypes.CHANGE_ITEM_AMOUNT:
+            const index = state.cart.findIndex(x => x._id === action.payload.id); 
+            return {
+                ...state,
+                ...state.cart[index].amount = action.payload.value
             }
         default:
             return state;
