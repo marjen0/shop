@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import classes from './TopMenu.module.css';
 import discountIcon from '../../../assets/icons/discount-label-for-commerce.svg';
 
@@ -7,22 +8,19 @@ const topMenu = (props) => {
         <div className={classes.TopMenu}>
             <ul>
                 <li>
-                    <a href='/' className={classes.DiscountLink}>
+                    <Link to='/akcijos' className={classes.DiscountLink}>
                         <img src={discountIcon} alt='discount icon'/>
                         Akcijos
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href='/'>Išparduotuvė</a>
+                    <Link to='/baldai'>Baldai</Link>
                 </li>
                 <li>
-                    <a href='/'>Baldai</a>
+                    <Link to='/kvepalai'>Kvepalai</Link>
                 </li>
                 <li>
-                    <a href='/'>Kvepalai</a>
-                </li>
-                <li>
-                    <a href='/'>Žaislai</a>
+                    <Link to='/zaislai'>Žaislai</Link>
                 </li>
             </ul>
         </div>
