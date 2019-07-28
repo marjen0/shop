@@ -1,6 +1,6 @@
 .Table {
     border-collapse: collapse;
-    margin: 2rem 0;
+    margin: 2rem 0 1rem 0;
     width: 100%;
     text-align: left;
 }
@@ -10,4 +10,12 @@
 }
 .Table tr {
     border: 1px solid #efefef;
+}
+.Price{
+    margin: 1em 0;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.Price span {
+    color: red;
 }

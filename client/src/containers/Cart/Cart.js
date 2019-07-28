@@ -7,9 +7,11 @@ import classes from './Cart.module.css';
 
 class Cart extends React.Component {
     render() {
+        
         return(
             <div className={classes.Cart}>
                <CartItems items={this.props.cart}/>
+                
                <button>Pirkti</button>
             </div>
         );

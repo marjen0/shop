@@ -15,13 +15,13 @@ class CartItem extends React.Component {
                         {this.props.item.title}
                     </td>
                     <td>
-                        {this.props.item.price}
+                        &euro; {this.props.item.price.toFixed(2)}
                     </td>
                     <td >
                         <input value={this.props.item.amount} onChange={(e) => this.props.itemAmountHandle(this.props.item._id,e.target.value)} defaultValue='1' className={classes.Amount} name='amount' min='1' type='number'/>
                     </td>
                     <td>
-                        {this.props.item.totalPrice}
+                        &euro; {this.props.item.totalPrice.toFixed(2)}
                     </td>
                     <td>
                         <button onClick={() => this.props.removeFromCart(this.props.item._id)}>Šalinti</button>

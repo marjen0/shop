@@ -5,10 +5,14 @@ import classes from './CartItems.module.css';
 
 const cartItems = (props) => {
     let items = null;
+    let totalPrice = 0;
     if (props.items) {
         items = props.items.map(item => (
             <CartItem key={item._id} item={item}/>
         ));
+        props.items.forEach(item => {
+            totalPrice += item.totalPrice;
+        });
     }
     return (
         <React.Fragment>
@@ -26,6 +30,8 @@ const cartItems = (props) => {
                     {items}
                 </tbody>   
             </table>
+            <hr style={{marginBottom:'1rem'}}/>
+            <p className={classes.Price}>Prekių kaina <span>&euro; {totalPrice}</span></p>
         </React.Fragment>
     );
 }
