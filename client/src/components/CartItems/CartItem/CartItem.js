@@ -18,10 +18,13 @@ class CartItem extends React.Component {
                         {this.props.item.price}
                     </td>
                     <td >
-                        <input value={item.amount} onChange={(e) => this.props.itemAmountHandle(this.props.item._id,e.target.value)} defaultValue='1' className={classes.Amount} name='amount' min='1' type='number'/>
+                        <input value={this.props.item.amount} onChange={(e) => this.props.itemAmountHandle(this.props.item._id,e.target.value)} defaultValue='1' className={classes.Amount} name='amount' min='1' type='number'/>
                     </td>
                     <td>
                         {this.props.item.totalPrice}
+                    </td>
+                    <td>
+                        <button onClick={() => this.props.removeFromCart(this.props.item._id)}>Šalinti</button>
                     </td>
                 </tr>
             );
@@ -35,7 +38,8 @@ class CartItem extends React.Component {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        itemAmountHandle: (id,value) => dispatch(actions.itemAmountHandle(id,value))
+        itemAmountHandle: (id,value) => dispatch(actions.itemAmountHandle(id,value)),
+        removeFromCart: (id) => dispatch(actions.removeFromCart(id))
     }
 }
 export default connect(null,mapDispatchToProps)(CartItem);
