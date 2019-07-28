@@ -55,7 +55,7 @@ class Items extends React.Component {
     }
 }
 Item.propTypes = {
-    items: PropTypes.array.isRequired,
+    items: PropTypes.array,
 }
 const mapStateToProps = state => {
     return {

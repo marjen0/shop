@@ -32,7 +32,12 @@ class Item extends React.Component {
                 </React.Fragment>
             );
         } else if(this.props.wishlist){
-            buttons = (<button className={classes.Remove} onClick={(e) => this.removeFromWishlistHandle(e,item._id)}>Šalinti</button>)
+            buttons = ( 
+                <React.Fragment>
+                    <button className={classes.Remove} onClick={(e) => this.removeFromWishlistHandle(e,item._id)}>Šalinti</button>
+                    <button onClick={(e) => this.addToCartHandle(e,item)} className={classes.AddToCart}>Į krepšelį</button>
+                </React.Fragment>
+            )
         } else if(this.props.cart){
             buttons = (<button className={classes.Remove} onClick={(e) => this.removeFromCartHandle(e,item._id)}>Šalinti</button>)
         }

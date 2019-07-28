@@ -18,7 +18,7 @@ class CartItem extends React.Component {
                         &euro; {this.props.item.price.toFixed(2)}
                     </td>
                     <td >
-                        <input value={this.props.item.amount} onChange={(e) => this.props.itemAmountHandle(this.props.item._id,e.target.value)} defaultValue='1' className={classes.Amount} name='amount' min='1' type='number'/>
+                        <input value={this.props.item.amount} onChange={(e) => this.props.itemAmountHandle(this.props.item._id,e.target.value)} className={classes.Amount} name='amount' min='1' type='number'/>
                     </td>
                     <td>
                         &euro; {this.props.item.totalPrice.toFixed(2)}

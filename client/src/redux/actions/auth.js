@@ -6,7 +6,8 @@ import {
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    SET_AUTH_REDIRECT_PATH
 } from './actionTypes';
 import axios from 'axios';
 import { returnErros } from './error'
@@ -95,4 +96,10 @@ const tokenConfig = (getState) => {
        config.headers['x-auth-token'] = token;
     }
     return config;
+}
+export const authRedirectPath = (path) => {
+    return {
+        type: SET_AUTH_REDIRECT_PATH,
+        path:path
+    }
 }

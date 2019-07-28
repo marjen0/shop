@@ -6,14 +6,16 @@ import {
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    SET_AUTH_REDIRECT_PATH
 } from '../actions/actionTypes';
 
 const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated:  null,
     isLoading: false,
-    user:null
+    user:null,
+    authRedirectPath: '/'
 }
 
 const reducer = (state=initialState,action) => {
@@ -51,6 +53,11 @@ const reducer = (state=initialState,action) => {
                 user: null,
                 isAuthenticated:false,
                 isLoading:false
+            }
+        case SET_AUTH_REDIRECT_PATH:
+             return {
+                ...state,
+                authRedirectPath: action.path
             }
         default:
             return state;

@@ -80,7 +80,7 @@ class Login extends React.Component {
         ));
         let error = this.state.message? <p>{this.state.message}</p>: null
 
-        let authRedirect = this.props.isAuthenticated? <Redirect to='/'/> : null;
+        let authRedirect = this.props.isAuthenticated? <Redirect to={this.props.authRedirect}/> : null;
         return (
             <div className={classes.Login}>
                 {authRedirect}
@@ -96,7 +96,8 @@ class Login extends React.Component {
 const mapStateToProps = state => {
     return {
         error: state.error,
-        isAuthenticated: state.auth.isAuthenticated
+        isAuthenticated: state.auth.isAuthenticated,
+        authRedirect: state.auth.authRedirectPath
     }
 }
 export default connect(mapStateToProps,{login,clearErrors})(Login);
