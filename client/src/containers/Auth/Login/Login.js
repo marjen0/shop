@@ -33,11 +33,7 @@ class Login extends React.Component {
     componentDidUpdate(prevProps){
         const error = this.props.error;
         if (error !== prevProps.error) {
-            if (error.id === 'LOGIN_FAIL') {
-                this.setState({message: error.message.message})
-            } else {
-                this.setState({message:null})
-            }
+            this.setState({message: error.message.message}) 
         }
     }
     inputChangeHandler = (event, controlName) => {

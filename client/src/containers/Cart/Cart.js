@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CartItems from '../../components/CartItems/CartItems';
 import {order} from '../../redux/actions/orders';
 import { authRedirectPath } from '../../redux/actions/auth';
+import { returnErrors } from '../../redux/actions/error';
 
 import classes from './Cart.module.css';
 
@@ -10,10 +11,12 @@ class Cart extends React.Component {
     orderHandle = () => {
         if (!this.props.isAuthenticated) {
             const path = this.props.match.path;
+            this.props.setError('Pirmiau turite prisijungti');
             this.props.setAuthRedirectPath(path);
             this.props.history.push('/prisijungti');
         } else {
-            alert('auth')
+            const items = this.props.cart;
+            this.props.order({items});
         }
     }
     render() {
@@ -34,8 +37,9 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        onOrder: (data) => dispatch(order(data)),
-        setAuthRedirectPath: (path) => dispatch(authRedirectPath(path)) 
+        order: (data) => dispatch(order(data)),
+        setAuthRedirectPath: (path) => dispatch(authRedirectPath(path)),
+        setError: (message,status,id) => dispatch(returnErrors(message,status,id))
     }
 }
 

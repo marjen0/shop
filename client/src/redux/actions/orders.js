@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { tokenConfig } from './auth';
 import { ORDER_START,ORDER_SUCCESS,ORDER_FAIL } from './actionTypes';
 
 const orderStart = () => {
@@ -18,13 +19,13 @@ const orderSuccess = (message) => {
         message: message
     }
 }
-export const order = (data) => dispatch => {
+export const order = (order) => (dispatch, getState) => {
     dispatch(orderStart());
-    axios.post('/api/orders', data)
+    axios.post('/api/orders', order,tokenConfig(getState))
     .then(res => {
         dispatch(orderSuccess('Užsakymas Įvykdytas'))
     })
     .catch(err => {
-        dispatch(orderFail('Įvyko klaida'));
+        dispatch(orderFail(err.response.data));
     })
 }

@@ -10,7 +10,7 @@ import {
     SET_AUTH_REDIRECT_PATH
 } from './actionTypes';
 import axios from 'axios';
-import { returnErros } from './error'
+import { returnErrors } from './error'
  
 /**
  * @desc loads logged in user from backend
@@ -23,7 +23,7 @@ export const loadUser = () => (dispatch,getState) => {
         payload: res.data
     }))
     .catch(error => {
-        dispatch(returnErros(error.response.data,error.response.status))
+        dispatch(returnErrors(error.response.data,error.response.status))
         dispatch({
             type: AUTH_ERROR
         });
@@ -51,7 +51,7 @@ export const login = ({email,password}) => dispatch => {
         })
     })
     .catch(error => {
-        dispatch(returnErros(error.response.data,error.response.status, 'LOGIN_FAIL'))
+        dispatch(returnErrors(error.response.data,error.response.status, 'LOGIN_FAIL'))
         dispatch({
             type: LOGIN_FAIL
         })
@@ -71,7 +71,7 @@ export const register = ({email,password1,password2}) => dispatch => {
         })
     })
     .catch(error => {
-        dispatch(returnErros(error.response.data,error.response.status, 'REGISTER_FAIL'))
+        dispatch(returnErrors(error.response.data,error.response.status, 'REGISTER_FAIL'))
         dispatch({
             type: REGISTER_FAIL
         })
@@ -82,7 +82,7 @@ export const register = ({email,password1,password2}) => dispatch => {
  * 
  * @desc adds token in headers 
  */
-const tokenConfig = (getState) => {
+export const tokenConfig = (getState) => {
      //get token from local storage
     const token = getState().auth.token;
      //headers

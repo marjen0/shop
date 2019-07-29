@@ -2,7 +2,7 @@ import { ORDER_START,ORDER_FAIL,ORDER_SUCCESS } from '../actions/actionTypes';
 
 const initialState = {
     orders: [],
-    loading: false,
+    loading: null,
     purchased: false,
     message: null
 }

@@ -17,4 +17,4 @@ const authenticate = (req,res,next) => {
         res.status(400).json({message: 'Autorizacija nepavyko'})
     }
 }
-module.exports = authenticate;
+exports.authenticate = authenticate;

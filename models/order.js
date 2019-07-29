@@ -13,6 +13,9 @@ const orderSchema = new Schema({
         default: 0
     }
 });
+orderSchema.statics.getAllOrders = async () => {
+    return await Order.find();
+}
 
 const Order = mongoose.model('Order', orderSchema);
 

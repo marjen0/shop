@@ -3,7 +3,7 @@ const router = express.Router({mergeParams: true});
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
-const auth = require('../../middleware/auth');
+const {authenticate} = require('../../middleware/auth');
 
 const User = require('../../models/user');
 
@@ -89,7 +89,7 @@ router.post('/login', (req,res) => {
     });
 });
 
-router.get('/user', auth, (req,res) => {
+router.get('/user', authenticate, (req,res) => {
     User.findById(req.user.id, (err, user) => {
         if (!err) {
             return res.status(200).json({user:user});
