@@ -34,6 +34,12 @@ const itemSchema = new Schema({
     }
 });
 
+itemSchema.statics.incrementPurchasedCount = async (id) => {
+    const item = await Item.findById(id);
+    item.purchasedCount++;
+    await item.save;
+}
+
 const Item = mongoose.model('Item',itemSchema);
 
 module.exports = Item;

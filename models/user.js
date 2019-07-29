@@ -23,6 +23,18 @@ const userSchema = new Schema({
     }]
 });
 
+userSchema.statics.pushOrder = async (userID, orderID) => {
+    try {
+        const user = await User.findById(userID);
+        user.orders.push(orderID);
+        await user.save();
+        return true;
+    } catch (error) {
+        return false
+    }
+    
+}
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

@@ -4,7 +4,7 @@ const itemSchema = require('./Item/item').schema;
 
 const orderSchema = new Schema({
     items: [itemSchema],
-    price: {
+    totalPrice: {
         type: Number,
         required: [true, 'Užsakymas turi turėti kainą']
     },
