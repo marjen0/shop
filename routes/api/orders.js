@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router({mergeParams:true});
-const mongoose = require('mongoose');
 const User = require('../../models/user');
 const Item = require('../../models/Item/item');
 const Order = require('../../models/order');
@@ -17,19 +16,21 @@ router.get('/', async (req,res) => {
 });
 router.post('/', authenticate, async (req,res) => {
     try {
-        const {items} = req.body;
+        const items = req.body.items;
         let totalPrice = 0;
-        items.forEach(item => {
+        items.forEach(async item => {
             totalPrice += item.totalPrice;
-            Item.incrementPurchasedCount(item._id)
+            Item.bought(item._id, item.amount);
         });
         const newOrder = new Order({
             items: items,
             totalPrice: totalPrice,
         });
         const savedOrder = await newOrder.save();
+
         User.pushOrder(req.user.id, savedOrder._id);
-        res.status(201).json({items:items});
+
+        return res.status(201).json({message: 'Užsakymas pridėtas'});
     } catch (error) {
         console.error('at post /orders',error);
         res.status(500).json({message: 'Įvyko klaida'})

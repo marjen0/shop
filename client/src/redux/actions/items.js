@@ -91,4 +91,9 @@ export const itemAmountHandle = (id, value) => {
         }
     }
 }
+export const clearCart = () => {
+    return {
+        type: actionTypes.CLEAR_CART
+    }
+}
 

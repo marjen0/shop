@@ -65,7 +65,7 @@ getLimitedItems = async (limit) =>{
 }
 getAllItems = async () => {
     try {
-        const items = await Item.find().sort('purchasedCount');
+        const items = await Item.find().sort('-purchasedCount');
         return items;
     } catch (e) {
         console.error('at /visos-prekės',e);

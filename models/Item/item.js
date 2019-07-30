@@ -33,11 +33,19 @@ const itemSchema = new Schema({
         required: [true, 'Pasirinkite kategoriją'] 
     }
 });
-
-itemSchema.statics.incrementPurchasedCount = async (id) => {
-    const item = await Item.findById(id);
-    item.purchasedCount++;
-    await item.save;
+itemSchema.pre('save', function (next) {
+    this.leftCount = this.get('initialCount');
+    next();
+});
+itemSchema.statics.bought = async (id, amount) => {
+    try{
+        const convertedAmount = Number(amount);
+        const item = await Item.findOne({_id:id});
+        item.purchasedCount = item.purchasedCount+convertedAmount;
+        await item.save();
+    } catch(err){
+        throw err;
+    }
 }
 
 const Item = mongoose.model('Item',itemSchema);

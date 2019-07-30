@@ -72,6 +72,12 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 cart: updItems
             }
+        case actionTypes.CLEAR_CART:
+            localStorage.removeItem('cart');
+            return {
+                ...state,
+                cart: []
+            }
         default:
             return state;
     }

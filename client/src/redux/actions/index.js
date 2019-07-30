@@ -3,6 +3,8 @@ export {
     fetchAllItems,
     addToWishlist,
     removeFromWishlist, 
-    removeFromCart,addToCart, 
+    removeFromCart,
+    addToCart, 
+    clearCart,
     itemAmountHandle 
 } from './items';

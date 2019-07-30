@@ -7,7 +7,7 @@ const initialState = {
     message: null
 }
 const reducer = (state=initialState,action) => {
-    switch (key) {
+    switch (action.type) {
         case ORDER_START:
             return {
                 ...state,
@@ -29,7 +29,7 @@ const reducer = (state=initialState,action) => {
             }
         }
         default:
-            break;
+            return state
     }
 }
 
