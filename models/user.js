@@ -16,24 +16,8 @@ const userSchema = new Schema({
     registerDate: {
         type: Date,
         default: new Date(),
-    },
-    orders: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Order'
-    }]
-});
-
-userSchema.statics.pushOrder = async (userID, orderID) => {
-    try {
-        const user = await User.findById(userID);
-        user.orders.push(orderID);
-        await user.save();
-        return true;
-    } catch (error) {
-        return false
     }
-    
-}
+});
 
 const User = mongoose.model('User', userSchema);
 

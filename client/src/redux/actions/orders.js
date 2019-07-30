@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { tokenConfig } from './auth';
-import { ORDER_START,ORDER_SUCCESS,ORDER_FAIL } from './actionTypes';
+import { ORDER_START,ORDER_SUCCESS,ORDER_FAIL,FETCH_ORDERS_FAIL,FETCH_ORDERS_SUCCESS,FETCH_ORDERS_START } from './actionTypes';
 import {clearCart} from './index';
 
 const orderStart = () => {
@@ -29,5 +29,32 @@ export const order = (order) => (dispatch, getState) => {
     })
     .catch(err => {
         dispatch(orderFail('Užsakymas nepavyko'));
+    })
+}
+const fetchOrderStart = () => {
+    return {
+        type: FETCH_ORDERS_START
+    }
+}
+const fetchOrdersSuccess = (orders) => {
+    return {
+        type: FETCH_ORDERS_SUCCESS,
+        orders: orders
+    }
+}
+const fetchOrdersFail = (message) => {
+    return {
+        type:FETCH_ORDERS_FAIL,
+        message: message
+    }
+}
+export const fetchOrders = (userID) => (dispatch, getState) => {
+    dispatch(fetchOrderStart());
+    axios.get(`/api/users/${userID}/orders`, tokenConfig(getState))
+    .then(res => {
+        dispatch(fetchOrdersSuccess(res.data.orders));
+    })
+    .catch(err => {
+        dispatch(fetchOrdersFail('Nepavyko gauti Užsakymų'));
     })
 }

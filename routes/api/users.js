@@ -3,6 +3,7 @@ const router = express.Router({mergeParams:true});
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const User = require('../../models/user');
+const Order = require('../../models/order');
 const {authenticate} = require('../../middleware/auth');
 
 router.get('/', async (req,res) => {
@@ -18,7 +19,15 @@ router.get('/', async (req,res) => {
     }
 });
 router.get('/user',authenticate,(req,res) => {
-    User.findById(req.user.id).select('-password').then(user => res.json({user:user}))
+    User.findById(req.user.id).select('id email registerDate').then(user => res.json({user:user}))
+});
+router.get('/:id/orders',authenticate, async (req,res) => {
+    try {
+        const orders = await Order.getOrdersOfUser(req.user.id)
+        return res.status(200).json({orders: orders});
+    } catch (error) {
+        return res.status(500).json({message: 'Įvyko klaida'});
+    }
 });
 router.get('/:id', async (req,res)=> {
     try {
@@ -56,18 +65,5 @@ router.put('/:id', async (req,res) => {
     }
 });
 
-router.get('/:id/items', async (req,res) => {
-    try {
-        const user = await User.findById(req.params.id);
-        if (!user) {
-            return res.status(404).json({message: 'Vartotojas nerastas'})
-        }
-        const items = user.populate('boughtItems');
-        return res.status(200).json({items: items});
-    } catch (e) {
-        console.error('at users/:id/items', e);
-        return res.status(500).json({message: 'Įvyko klaida'});
-    }
-});
 
 module.exports = router;

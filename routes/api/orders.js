@@ -7,7 +7,7 @@ const { authenticate } = require('../../middleware/auth');
 
 router.get('/', async (req,res) => {
     try {
-        const orders = Order.getAllOrders();
+        const orders = await Order.getAllOrders();
         res.status(200).json({orders:orders});
     } catch (error) {
         console.log('at get /orders', error);
@@ -25,10 +25,10 @@ router.post('/', authenticate, async (req,res) => {
         const newOrder = new Order({
             items: items,
             totalPrice: totalPrice,
+            user: req.user.id
         });
-        const savedOrder = await newOrder.save();
+        await newOrder.save();
 
-        User.pushOrder(req.user.id, savedOrder._id);
 
         return res.status(201).json({message: 'Užsakymas pridėtas'});
     } catch (error) {

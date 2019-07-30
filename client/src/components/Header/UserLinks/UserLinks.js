@@ -26,11 +26,15 @@ class UserLinks extends React.Component {
     }
 
     render(){
-        const { wishlist,cart } = this.props;
+        const { wishlist,cart,user } = this.props;
         let authLink = this.props.user
             ? (
-                <UserLink icon={userIcon} to='/profilis'>
-                    Profilis
+                <UserLink icon={userIcon}>
+                    <span className={classes.authLinks}>Profilis
+                        <div className={classes.Profile}>
+                            <UserLink to={`/${user.user._id}/uzsakymai`}>Mano užsakymai</UserLink>
+                        </div>
+                    </span>
                 </UserLink>
             ) :
             (
