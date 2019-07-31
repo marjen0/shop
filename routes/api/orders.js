@@ -36,6 +36,19 @@ router.post('/', authenticate, async (req,res) => {
         res.status(500).json({message: 'Įvyko klaida'})
     }
 });
+router.get('/:id',authenticate, async (req,res) => {
+    try {
+        const order = await Order.findOne({_id:req.params.id});
+        if (!order) {
+            return res.status(404).json({message: `Užsakymas ${req.params} nerastas`});
+        }
+        return res.status(200).json({order:order});
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({message: 'Įvyko klaida.'})
+    }
+})
+
 
 
 module.exports = router;

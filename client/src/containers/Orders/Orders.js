@@ -20,12 +20,12 @@ class Orders extends React.Component {
 const mapStateToProps = state => {
     return {
         orders: state.order.orders,
-        user: state.auth.user.user
+        user: state.auth.user
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        fetchOrders: (userID) => dispatch(fetchOrders(userID))
+        fetchOrders: (userID) => dispatch(fetchOrders(userID)),
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Orders);

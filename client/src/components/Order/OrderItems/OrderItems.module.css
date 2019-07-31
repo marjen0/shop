@@ -4,18 +4,11 @@
     width: 100%;
     text-align: left;
 }
-.Table tr,th {
-    padding: 15px;
-    background-color: #f8f8f8;  
+.Table thead tr,th {
+    padding: 20px;
+    background-color: #eee;
 }
 .Table tr {
     border: 1px solid #efefef;
 }
-.Price{
-    margin: 1em 0;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-.Price span {
-    color: red;
-}
+

@@ -1,20 +1,10 @@
-.Image {
-    height: 100%;
-    width: auto;
-    display: inline-block;
-}
 .RowData td {
-    height: 80px; 
     background-color: #f8f8f8;
-    padding: 15px;
+    padding: 20px;
+    text-align: left;
 }
-.RowData {
-    border: 1px solid #ccc;
+.Price {
+    color: red;
 }
-.Amount {
-    width: 50px;
-    border-radius: 2px;
-    
-    border: 1px solid #ccc;
-    padding: 5px;
-}
+
+

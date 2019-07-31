@@ -32,7 +32,7 @@ class UserLinks extends React.Component {
                 <UserLink icon={userIcon}>
                     <span className={classes.authLinks}>Profilis
                         <div className={classes.Profile}>
-                            <UserLink to={`/${user.user._id}/uzsakymai`}>Mano užsakymai</UserLink>
+                            <UserLink to={`/${user._id}/uzsakymai`}>Mano užsakymai</UserLink>
                         </div>
                     </span>
                 </UserLink>

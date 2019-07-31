@@ -4,7 +4,7 @@ import CartItems from '../../components/CartItems/CartItems';
 import {order} from '../../redux/actions/orders';
 import { authRedirectPath } from '../../redux/actions/auth';
 import { returnErrors } from '../../redux/actions/error';
-import { Redirect } from 'react-router-dom';
+//import { Redirect } from 'react-router-dom';
 
 import classes from './Cart.module.css';
 
