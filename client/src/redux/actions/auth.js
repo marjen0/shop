@@ -16,6 +16,7 @@ import { returnErrors } from './error'
  * @desc loads logged in user from backend
  */
 export const loadUser = () => (dispatch,getState) => {
+    console.log('load user');
     dispatch({type: USER_LOADING});
     axios.get('/api/users/user',tokenConfig(getState))
     .then(res => dispatch({

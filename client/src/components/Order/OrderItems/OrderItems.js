@@ -5,12 +5,10 @@ import classes from './OrderItems.module.css';
 
 class OrderItems extends React.Component {
     render() {
-        if (!this.props.orders) {
-            return <p>Užsakymų nėra</p>
-        }
-        const orders = this.props.orders.map(order => (
+        let orders = this.props.orders.map(order => (
             <OrderItem key={order._id} order={order}/>
         )); 
+        
         return (
             <React.Fragment>
                 <table className={classes.Table}>

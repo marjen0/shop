@@ -3,7 +3,6 @@ import classes from './OrderItem.module.css';
 import { Link, withRouter } from 'react-router-dom';
 
 const orderItem = (props) => {
-    console.log(props)
     return (
         <React.Fragment>
             <tr className={classes.RowData}>

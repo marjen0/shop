@@ -14,7 +14,7 @@ import Register from './containers/Auth/Register/Register';
 
 class App extends Component {
 
-  componentDidMount(){
+  componentWillMount(){
     store.dispatch(loadUser());
   }
   render() {

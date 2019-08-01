@@ -11,7 +11,6 @@ import cartIcon from '../../../assets/icons/shopping-cart.svg';
 
 
 class UserLinks extends React.Component {
-
     remove = (e,id) => {
         e.preventDefault();
         this.props.remove(id);

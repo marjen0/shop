@@ -5,14 +5,15 @@ import OrderItems from '../../components/Order/OrderItems/OrderItems';
 
 class Orders extends React.Component {
     componentDidMount(){
-        if (this.props.user) {
-            this.props.fetchOrders(this.props.user._id)    
-        }
+        const userID = this.props.match.params.id;
+        this.props.fetchOrders(userID);
     }
+    
     render() {
+        const { orders } = this.props;
         return(
             <React.Fragment>
-                <OrderItems orders={this.props.orders}/>
+                {orders? <OrderItems orders={this.props.orders}/>: <p>Loading...</p>}
             </React.Fragment>
         );
     }
@@ -20,12 +21,14 @@ class Orders extends React.Component {
 const mapStateToProps = state => {
     return {
         orders: state.order.orders,
-        user: state.auth.user
+        user: state.auth.user,
+        isAuth: state.auth.isAuthenticated,
+        isLoading: state.auth.isLoading
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        fetchOrders: (userID) => dispatch(fetchOrders(userID)),
+        fetchOrders: (userID) => dispatch(fetchOrders(userID))
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Orders);

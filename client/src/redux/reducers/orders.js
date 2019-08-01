@@ -2,7 +2,7 @@ import { ORDER_START,ORDER_FAIL,ORDER_SUCCESS,FETCH_ORDERS_START,
     FETCH_ORDERS_SUCCESS,FETCH_ORDERS_FAIL,FETCH_ORDER,FETCH_ORDER_FAIL,FETCH_ORDER_START } from '../actions/actionTypes';
 
 const initialState = {
-    orders: [],
+    orders: null,
     order: null,
     loading: false,
     purchased: false,

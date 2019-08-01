@@ -12,7 +12,7 @@ import {
 
 const initialState = {
     token: localStorage.getItem('token'),
-    isAuthenticated:  null,
+    isAuthenticated: false,
     isLoading: false,
     user:null,
     authRedirectPath: '/'
@@ -23,7 +23,7 @@ const reducer = (state=initialState,action) => {
         case USER_LOADING:
             return {
                 ...state,
-                isLoading:true
+                isLoading:true,
             }
         case USER_LOADED:
             return {
