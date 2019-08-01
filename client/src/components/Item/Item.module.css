@@ -1,11 +1,10 @@
 .Item {
-    border: 1px dolid #ccc;
     border-radius: 3px;
     box-shadow: -1px 1px 3px #ccc;
     padding: 20px;
 }
 .Item:hover {
-    transform: scale(1.1);
+    border: 1px solid #ccc;
     border-bottom: 10px solid orange;
 }
 .Item p {
