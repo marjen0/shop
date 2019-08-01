@@ -21,9 +21,6 @@ class Orders extends React.Component {
 const mapStateToProps = state => {
     return {
         orders: state.order.orders,
-        user: state.auth.user,
-        isAuth: state.auth.isAuthenticated,
-        isLoading: state.auth.isLoading
     }
 }
 const mapDispatchToProps = dispatch => {
