@@ -3,9 +3,11 @@
     justify-content: space-between;
     margin-left: 20px;
     align-items: center;
+    position: relative;
 }
-.Auth {
+.Auth, .Profile {
     position: absolute;
+    left: 0;
     display: none;
     background-color: #fff;
     padding: 20px;
@@ -20,6 +22,12 @@
     cursor: pointer;
 }
 .authLinks:hover .Auth {
+    display: block;
+}
+.Profile {
+    display: none;
+}
+.authLinks:hover .Profile {
     display: block;
 }
 .Auth hr {
