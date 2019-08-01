@@ -1,6 +1,4 @@
 import React from 'react';
-import CartItems from '../../../components/CartItems/CartItems'
-import axios from 'axios';
 import {connect} from 'react-redux';
 import { fetchOrder } from '../../../redux/actions/orders';
 
