@@ -1,5 +1,5 @@
 .Register {
-    width: 600px;
+    width: 100%;
     margin: 50px auto;
     border: 1px solid #ccc;
     box-shadow: -1px 1px 5px #eee;
@@ -14,4 +14,9 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
+}
+@media only screen and (min-width: 700px) {
+    .Register {
+        max-width: 600px;
+    }
 }

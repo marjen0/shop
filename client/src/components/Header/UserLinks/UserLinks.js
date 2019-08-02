@@ -71,7 +71,7 @@ class UserLinks extends React.Component {
                 
                 <UserLink icon={cartIcon}> 
                     <span className={classes.cart}>Prekių krepšelis (<span style={{color:'red'}}>{cartCounter}</span>)
-                        <div className={classes.Wishlist}>
+                        <div className={classes.Cart}>
                             <EmptyList cart={this.props.cart}/>
                             <ItemSummary
                                 link='/prekiu-krepselis'

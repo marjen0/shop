@@ -5,20 +5,34 @@
     align-items: center;
     position: relative;
 }
-.Auth, .Profile {
+.Auth, .Profile, .Wishlist, .Cart  {
+    min-width: 250px;
     position: absolute;
-    left: 0;
     display: none;
     background-color: #fff;
     padding: 20px;
-    width: 250px;
+    width: auto;
     text-align: center;
+    z-index: 200;
+}
+.Auth {
+    left: 0t;
+} 
+.Profile {
+    left: 0;
+} 
+.Wishlist {
+    left: 0;
+}
+.Cart {
+    right: 0;
 }
 .Auth p {
     font-size: 0.9em;
     margin: 10px;
 }
 .authLinks {
+    position: relative;
     cursor: pointer;
 }
 .authLinks:hover .Auth {
@@ -51,25 +65,18 @@
 .Auth a:hover {
     background-color: rgb(0, 194, 0);
 }
-.Wishlist {
-    position: absolute;
-    display: none;
-    background-color: #fff;
-    max-width: 350px;
-    right: 0;
-    color: #484848;
-    border: 1px solid #eee;
-    width: auto;
-}
+
 .list{
     cursor: pointer;
+    position: relative;
 }
 .list:hover .Wishlist {
     display: block;
 }
 .cart {
     cursor: pointer;
+    position: relative;
 }
-.cart:hover .Wishlist {
+.cart:hover .Cart {
     display: block
 }
