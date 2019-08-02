@@ -1,6 +1,12 @@
 .ServiceInfoItems {
     display: flex;
+    flex-wrap: wrap;
 }
 .Number {
     font-size: 0.8em;
+}
+@media only screen and (max-width: 768px) {
+    .ServiceInfoItems {
+        display: none;
+    }
 }

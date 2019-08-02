@@ -1,9 +1,10 @@
 .Header {
-    height: 100px;
+    min-height: 100px;
+    
     margin: auto;
-    border-bottom: 1px solid #ccc;
     padding: 10px 20px;
     display: flex;
+    border-bottom: 1px solid #ccc;
 }
 .FlexContainer {
     display: flex;
@@ -13,19 +14,26 @@
 }
 .HorizontalFlex {
     display: flex;
-    flex-direction: row;
+     flex-wrap: wrap;
+    flex-direction: row; 
 }
 .Header a {
     color: inherit;
     text-decoration: none;
 }
-.CloseModal {
-    background: transparent;
-    border: none;
-    font-size: 1.3em;
-    color: #585858;
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+@media only screen and (max-width:768px){
+    .FlexContainer {
+     
+    }
+    .HorizontalFlex {
+        flex-direction: column;
+    }
+    .Header{
+        flex-direction: column;
+    }
+    .Header a {
+        align-self: center;
+    }
+
 }
+
