@@ -1,6 +1,5 @@
 .Header {
-    min-height: 100px;
-    
+    height: 100px;
     margin: auto;
     padding: 10px 20px;
     display: flex;
@@ -14,7 +13,7 @@
 }
 .HorizontalFlex {
     display: flex;
-     flex-wrap: wrap;
+   
     flex-direction: row; 
 }
 .Header a {
@@ -23,10 +22,12 @@
 }
 @media only screen and (max-width:768px){
     .HorizontalFlex {
+        
         flex-direction: column;
     }
     .Header{
         flex-direction: column;
+        height: auto;
     }
     .Header a {
         align-self: center;
