@@ -6,6 +6,7 @@
 .Wrapper {
     display: flex;
     margin-right: 20px;
+    align-items: center;
 }
 .Wrapper > a {
     font-size: 14px;
@@ -21,4 +22,17 @@
     text-decoration: none;
     color: #484848;
     cursor: pointer;
+}
+@media only screen and (max-width: 360px) {
+    .Icon {
+        height: 20px;
+        width: auto;
+        margin-right: 10px;
+    }
+    .Wrapper > div {
+        font-size: 0.8em;
+        text-decoration: none;
+        color: #484848;
+        cursor: pointer;
+    }
 }

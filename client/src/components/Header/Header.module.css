@@ -22,9 +22,6 @@
     text-decoration: none;
 }
 @media only screen and (max-width:768px){
-    .FlexContainer {
-     
-    }
     .HorizontalFlex {
         flex-direction: column;
     }
@@ -34,6 +31,24 @@
     .Header a {
         align-self: center;
     }
+    .FlexContainer {
+        margin: 0;
+    }
 
+}
+@media only screen and (max-width: 360px){
+    .HorizontalFlex {
+        flex-direction: column;
+    }
+    .Header{
+        flex-direction: column;
+        padding: 10px 15px;
+    }
+    .Header a {
+        align-self: center;
+    }
+    .FlexContainer {
+        margin: 0;
+    }
 }
 

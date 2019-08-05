@@ -33,3 +33,8 @@
     z-index: 1;
     background-color: #fffeee
 }
+@media only screen and (max-width:360px) {
+    .Controls p {
+        font-size: 0.9em;
+    }
+}

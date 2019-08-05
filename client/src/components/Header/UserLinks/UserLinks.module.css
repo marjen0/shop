@@ -80,3 +80,9 @@
 .cart:hover .Cart {
     display: block
 }
+@media only screen and (max-width:360px) {
+    .UserLinks {
+        margin-left: 0;
+        justify-content: space-around;
+    }
+}
