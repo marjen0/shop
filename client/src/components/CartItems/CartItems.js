@@ -16,20 +16,23 @@ const cartItems = (props) => {
     }
     return (
         <React.Fragment>
-            <table className={classes.Table}>
-                <thead>
-                    <tr>
-                        <th>Prekė</th>
-                        <th>Vieneto Kaina</th>
-                        <th>Kiekis</th>
-                        <th>Iš viso</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {items}
-                </tbody>   
-            </table>
+            <div style={{overflowX:'auto'}}>
+                <table className={classes.Table}>
+                    <thead>
+                        <tr>
+                            <th>Prekė</th>
+                            <th>Vieneto Kaina</th>
+                            <th>Kiekis</th>
+                            <th>Iš viso</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {items}
+                    </tbody>   
+                </table>
+            </div>
+            
             <hr style={{marginBottom:'1rem'}}/>
             <p className={classes.Price}>Prekių kaina <span>&euro; {totalPrice}</span></p>
         </React.Fragment>

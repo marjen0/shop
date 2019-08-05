@@ -11,19 +11,22 @@ class OrderItems extends React.Component {
         
         return (
             <React.Fragment>
-                <table className={classes.Table}>
-                    <thead>
-                        <tr>
-                            <th>Kodas</th>
-                            <th>Data</th>
-                            <th>Kaina</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {orders}
-                    </tbody>
-                </table>
+                <div className={classes.TableContainer}>
+                    <table className={classes.Table}>
+                        <thead>
+                            <tr>
+                                <th>Kodas</th>
+                                <th>Data</th>
+                                <th>Kaina</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {orders}
+                        </tbody>
+                    </table>
+                </div>
+                
                 
             </React.Fragment>
         );

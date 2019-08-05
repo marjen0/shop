@@ -11,4 +11,7 @@
 .Table tr {
     border: 1px solid #efefef;
 }
+.TableContainer {
+    overflow-x: auto;
+}
 
