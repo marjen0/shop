@@ -1,13 +1,7 @@
-# React Express Starter Pack
-
-> Create full stack apps with React and Express. Run your client and server with a single command. 
-
-### Redux Version
-This version does not include Redux
-[Click Here For Redux Version](https://github.com/bradtraversy/react_redux_express_starter) 
+## Live Version
+https://murmuring-sierra-90740.herokuapp.com
 
 ## Quick Start
-
 ``` bash
 # Install dependencies for server
 npm install
@@ -26,8 +20,6 @@ npm run client
 
 # Server runs on http://localhost:5000 and client on http://localhost:3000
 ```
-
-## App Info
 
 ### Author
 
